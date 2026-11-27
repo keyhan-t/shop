@@ -1,0 +1,376 @@
+@import "tailwindcss";
+
+/* =====================================================
+   ۱) رنگ‌ها و فونت‌های سایت
+   اینجا تعریف می‌کنیم تا تو کلاس‌ها بتونیم بنویسیم:
+   bg-brand ، text-ink ، font-display ، ...
+   ===================================================== */
+@theme {
+  --color-brand: #0ea5a8; /* فیروزه‌ای اصلی پوشامن */
+  --color-brand-dark: #0a7c7f; /* فیروزه‌ی تیره: برای متن و دکمه (خواناتره) */
+  --color-brand-light: #10cbce; /* فیروزه‌ی روشن: برای تاکید روی زمینه‌ی تیره */
+  --color-mist: #e3f4f3; /* فیروزه‌ی خیلی کمرنگ */
+  --color-ink: #0a2e30; /* سبزآبی خیلی تیره: به جای مشکی */
+  --color-sand: #f1ece3; /* رنگ شنی (هم‌رنگ پس‌زمینه‌ی عکس مدل) */
+  --color-paper: #fbfaf7; /* رنگ زمینه‌ی صفحه */
+
+  --font-sans: "Vazirmatn", Tahoma, system-ui, sans-serif;
+  --font-display: "Lalezar", "Vazirmatn", Tahoma, sans-serif;
+}
+
+/* =====================================================
+   ۲) تنظیمات کلی صفحه
+   ===================================================== */
+html {
+  scroll-behavior: smooth; /* اسکرول نرم وقتی روی لینک‌ها کلیک می‌کنیم */
+  scroll-padding-top: 6rem; /* جا برای منوی چسبیده‌ی بالا */
+}
+
+body {
+  background: var(--color-paper);
+  color: #1e2b2c;
+  overflow-x: clip; /* جلوگیری از اسکرول افقی ناخواسته */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* دور دکمه‌ها وقتی با کیبورد (Tab) روشون می‌ریم */
+:focus-visible {
+  outline: 3px solid var(--color-brand-light);
+  outline-offset: 3px;
+}
+
+/* کانتینر وسط‌چین: همه‌ی بخش‌ها از این استفاده می‌کنن */
+.wrapper {
+  @apply mx-auto w-full max-w-7xl px-5 md:px-8;
+}
+
+/* مخفی کردن نوار اسکرول (برای لیست‌های افقی موبایل) */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --ease-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* =====================================================
+   ۳) انیمیشن‌های ورود (فقط یک بار، وقتی صفحه باز میشه)
+   ===================================================== */
+
+/* هر کلمه‌ی تیتر از پایین میاد بالا (داخل یه ماسک که بیرونش دیده نمیشه) */
+.word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-block: 0.15em;
+  margin-block: -0.15em;
+}
+.word {
+  display: inline-block;
+  animation: word-up 0.9s var(--ease-smooth) both;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes word-up {
+  from {
+    transform: translateY(115%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* محو شدن + آروم اومدن از پایین */
+.fade-up {
+  animation: fade-up 0.8s var(--ease-smooth) both;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* عکس اصلی: مثل یه پرده از پایین به بالا باز میشه */
+.photo-wipe {
+  animation: photo-wipe 1.2s cubic-bezier(0.7, 0, 0.2, 1) both;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes photo-wipe {
+  from {
+    clip-path: inset(100% 0 0 0 round 2.5rem);
+  }
+  to {
+    clip-path: inset(0 0 0 0 round 2.5rem);
+  }
+}
+
+/* خود عکس هم همزمان از حالت بزرگ‌شده کوچیک میشه */
+.photo-settle {
+  animation: photo-settle 1.8s var(--ease-smooth) 0.3s both;
+}
+@keyframes photo-settle {
+  from {
+    transform: scale(1.3);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* =====================================================
+   ۴) انیمیشن اسکرول
+   هر عنصری که کلاس "reveal" داشته باشه اولش مخفیه و
+   وقتی به صفحه رسید، کلاس "show" بهش اضافه میشه (کد اینکار تو App.jsx هست)
+   ===================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(48px);
+  transition:
+    opacity 0.9s var(--ease-smooth),
+    transform 0.9s var(--ease-smooth);
+  transition-delay: var(--delay, 0s); /* تاخیر برای پشت‌سرهم اومدن */
+}
+/* مدل‌های دیگه‌ی ورود (کنار reveal میذاریمشون) */
+.reveal-scale {
+  transform: translateY(24px) scale(0.92);
+}
+.reveal-from-right {
+  transform: translateX(70px);
+}
+.reveal-from-left {
+  transform: translateX(-70px);
+}
+/* حالت نهایی: همه چیز سر جاشه */
+.reveal.show {
+  opacity: 1;
+  transform: none;
+}
+
+/* =====================================================
+   ۵) انیمیشن‌های همیشگی و کوچیک
+   ===================================================== */
+
+/* شناور بودن (بالا و پایین رفتن آروم) */
+.float {
+  animation: float 5s ease-in-out infinite;
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* نوار متن متحرک.
+   چون سایت راست‌چینه، حرکت از 0 به 50% به سمت راست میره */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused; /* با موس روش بری وایمیسته */
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(50%);
+  }
+}
+
+/* پَرش کوچیک: برای عدد سبد خرید و قلب و تیک */
+.pop {
+  animation: pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes pop {
+  from {
+    transform: scale(0.3);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* عدد شمارش معکوس که تغییر می‌کنه: از بالا میاد پایین */
+.tick {
+  animation: tick 0.5s var(--ease-smooth);
+}
+@keyframes tick {
+  from {
+    opacity: 0;
+    transform: translateY(-45%);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* تکون خوردن آیکون شگفت‌انگیز */
+.wiggle {
+  animation: wiggle 3s ease-in-out infinite;
+  transform-origin: 50% 80%;
+}
+@keyframes wiggle {
+  0%,
+  60%,
+  100% {
+    transform: rotate(0);
+  }
+  70% {
+    transform: rotate(-8deg);
+  }
+  80% {
+    transform: rotate(8deg);
+  }
+  90% {
+    transform: rotate(-4deg);
+  }
+}
+
+/* نور براق که از روی نوار بالا رد میشه */
+.shine {
+  background-image: linear-gradient(
+    100deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 65%
+  );
+  background-size: 250% 100%;
+  animation: shine 4.5s ease-in-out infinite;
+}
+@keyframes shine {
+  from {
+    background-position: 150% 0;
+  }
+  to {
+    background-position: -50% 0;
+  }
+}
+
+/* باز شدن منوی موبایل */
+.slide-down {
+  animation: slide-down 0.35s var(--ease-smooth) both;
+}
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =====================================================
+   ۶) افکت‌های هاور
+   ===================================================== */
+
+/* خط زیر لینک‌های منو که از راست باز میشه */
+.link-underline::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-brand);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s var(--ease-smooth);
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* نور دنبال‌کننده‌ی موس (برای باکس Features).
+   مختصات موس رو تو --x و --y میریزیم (کدش تو Features.jsx هست) */
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    600px circle at var(--x, 50%) var(--y, 50%),
+    rgba(255, 255, 255, 0.2),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+/* متن درشت و محو پایین فوتر */
+.giant-text {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.28),
+    rgba(255, 255, 255, 0)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* =====================================================
+   ۷) کسایی که از کامپیوترشون خواستن انیمیشن کم باشه
+   ===================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/* فرم‌ها و صفحات حساب کاربری، سبد خرید و پرداخت */
+.form-field {
+  display: block;
+  width: 100%;
+  border: 1px solid #dce7e6;
+  border-radius: 12px;
+  background: #fbfdfd;
+  padding: 13px 14px;
+  color: #0a2e30;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.form-field:focus {
+  border-color: #0ea5a8;
+  box-shadow: 0 0 0 3px rgba(14,165,168,.12);
+}
+.qty-btn {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 9px;
+  background: #e3f4f3;
+  color: #0a7c7f;
+  font-size: 20px;
+  font-weight: 700;
+}

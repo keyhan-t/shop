@@ -1,0 +1,144 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "تیشرت مردانه نخ پنبه خالص پنبینه مدل جنرال",
+      "price": 1032000,
+      "image": "https://dkstatics-public.digikala.com/digikala-products/bb0d9d95da8ee79873826eaa7790f695ea77e15e_1786035745.jpg",
+      "rating": 3.8
+    },
+    {
+      "id": 2,
+      "name": "شلوار جین مردانه ایزی دو مدل 288-07",
+      "price": 3990000,
+      "image": "https://dkstatics-public.digikala.com/digikala-products/bdf166a03829155f4addca1a91f233c94c9c3fae_1785146951.jpg",
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "name": "پلیور مردانه آر اِن اِس مدل 12232576",
+      "price": 2700000,
+      "image": "https://dkstatics-public.digikala.com/digikala-products/c6644e0001aa49b3d1593956a79cbf2219b94123_1788161589.jpg",
+      "rating": 4
+    },
+    {
+      "id": 4,
+      "name": "کفش کالج مردانه منط مدل K203",
+      "price": 12399200,
+      "image": "https://dkstatics-public.digikala.com/digikala-products/456c276e4edcbc697e685aa80a9215695462c1bc_1740896460.jpg",
+      "rating": 4.5
+    },
+    {
+      "id": 5,
+      "name": "شلوار کتان راسته مردانه آر اِن اِس مدل 12042668",
+      "price": 3000000,
+      "image": "https://dkstatics-public.digikala.com/digikala-products/af593b21375d1cf9dde0817828ce5b121a73fd42_1788018216.jpg",
+      "rating": 3
+    },
+    {
+      "id": 6,
+      "name": "جوراب ساق بلند مردانه سیرداش مدل ساده 111 بسته 6 عددی",
+      "price": 1389000,
+      "image": "https://dkstatics-public.digikala.com/digikala-products/2c0c6556b6bd20c34ba8d1c8f313b93485ab2d80_1756105524.jpg",
+      "rating": 4.4
+    },
+    {
+      "id": 7,
+      "name": "جوراب ساق بلند مردانه اسپست مدل AP-B3 مجموعه 3 عددی",
+      "price": 499900,
+      "image": "https://dkstatics-public.digikala.com/digikala-products/d71904c1ddf51728461e23b4bc0dfd1e32bbeefa_1777882349.jpg",
+      "rating": 3.9
+    },
+    {
+      "id": 8,
+      "name": "شلوار راحتی مردانه پالوته مدل PLT-SHLV-ML",
+      "price": 1245000,
+      "image": "https://dkstatics-public.digikala.com/digikala-products/5d802fcbc37ebe1919f851b28a57c0badc82ff0a_1780991160.jpg",
+      "rating": 4.1
+    },
+    {
+      "id": 9,
+      "name": "کمربند مردانه مدیر چرم مدل MKM6",
+      "price": 177000,
+      "image": "https://dkstatics-public.digikala.com/digikala-products/3ba03e1125440743048565aceb24a9666dd2ba90_1629886682.jpg",
+      "rating": 3.9
+    },
+    {
+      "id": 10,
+      "name": "نیم بوت مردانه مدل اسپانیا رنگ مشکی",
+      "price": 1599000,
+      "image": "https://dkstatics-public.digikala.com/digikala-products/4100c02d768e7028cb5316db2a36dc69d508db8c_1759516148.jpg",
+      "rating": 4.2
+    },
+    {
+      "id": 11,
+      "name": "کفش روزمره مردانه دوخط مدل وان",
+      "price": 3044430,
+      "image": "https://dkstatics-public.digikala.com/digikala-products/63cfc4645a0576e3530f351bcd87c43a17b59949_1766044219.jpg",
+      "rating": 3.5
+    },
+    {
+      "id": 12,
+      "name": "صندل طبی مردانه کیتو مدل دوپل",
+      "price": 1330000,
+      "image": "https://dkstatics-public.digikala.com/digikala-products/ce8585ab9b26598ff9c0ce81dc353f4aaf297edf_1790844624.jpg",
+      "rating": 4
+    },
+    {
+      "id": 13,
+      "name": "جوراب ساق کوتاه مردانه کد LD-25 بسته 6 عددی",
+      "price": 384600,
+      "image": "https://dkstatics-public.digikala.com/digikala-products/09a96e1775bcd1f92bcd30d41cc43cc911da3933_1777882329.jpg",
+      "rating": 4.1
+    },
+    {
+      "id": 14,
+      "name": "قالب کفش مردانه مدل 003 بسته 2 عددی",
+      "price": 264980,
+      "image": "https://dkstatics-public.digikala.com/digikala-products/4067828.jpg",
+      "rating": 4.3
+    },
+    {
+      "id": 15,
+      "name": "زیرپوش مردانه کیان تن پوش مدل U Neck Shirt Classic",
+      "price": 1400000,
+      "image": "https://dkstatics-public.digikala.com/digikala-products/bce8d9f2ae2cd0dd9dcf4428e8f2d55ba60556c3_1785336469.jpg",
+      "rating": 4.2
+    },
+    {
+      "id": 16,
+      "name": "گن مردانه فرم تایم مدل 6200",
+      "price": 2790000,
+      "image": "https://dkstatics-public.digikala.com/digikala-products/df95a065bd7bb190efa5bfbc45bef6a00f9d424c_1785336480.jpg",
+      "rating": 4.1
+    },
+    {
+      "id": 17,
+      "name": "شلوار مردانه کد 125",
+      "price": 2020000,
+      "image": "https://dkstatics-public.digikala.com/digikala-products/fe1b7a726ff529f904a7ff466917f8f638e0ff1b_1762760913.jpg",
+      "rating": 3.9
+    },
+    {
+      "id": 18,
+      "name": "شلوار پارچه ای سرمه ای مردانه کد 2",
+      "price": 1399000,
+      "image": "https://dkstatics-public.digikala.com/digikala-products/9ec700f7f0911fa70c66778bb340640ee275d3c6_1751541399.jpg",
+      "rating": 3.9
+    },
+    {
+      "id": 19,
+      "name": "جوراب مچی مردانه پاآرا مدل 1-2-403",
+      "price": 189900,
+      "image": "https://dkstatics-public.digikala.com/digikala-products/2057762.jpg",
+      "rating": 4
+    },
+    {
+      "id": 20,
+      "name": "تیشرت مردانه نخ پنبه خالص پنبینه مدل قواره دار تنفس پذیر",
+      "price": 1212000,
+      "image": "https://dkstatics-public.digikala.com/digikala-products/a4d8488c9e04857af7122af790db87bcb5bbae43_1787723418.jpg",
+      "rating": 3.4
+    }
+  ]
+}
