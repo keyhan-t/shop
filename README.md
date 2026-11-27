@@ -35,3 +35,9 @@ src/
 
 به المنت کلاس `reveal` بده. مدل‌های دیگه: `reveal-scale`، `reveal-from-right`، `reveal-from-left`.
 برای تاخیر: `style={{ "--delay": "0.2s" }}`
+
+## قبل از انتشار حتما عوض کن
+
+- نظرات مشتریان (`Testimonials.jsx`) و آمارشون
+- آدرس، تلفن و ایمیل (`Footer.jsx`)
+- عکس و اسم و قیمت محصولات (`data/products.js`)
